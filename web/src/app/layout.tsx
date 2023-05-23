@@ -1,16 +1,18 @@
-import Hero from '@/components/Hero';
-import Profile from '@/components/Profile';
-import SignIn from '@/components/SignIn';
 import './globals.css';
+import { ReactNode } from 'react';
 import {
   Roboto_Flex as Roboto,
   Bai_Jamjuree as BaiJamjuree,
 } from 'next/font/google';
+
+import Hero from '@/components/Hero';
+import Profile from '@/components/Profile';
+import SignIn from '@/components/SignIn';
 import Copyright from '@/components/Copyright';
 import { cookies } from 'next/headers';
 
-
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' });
+
 const baiJamjuree = BaiJamjuree({
   subsets: ['latin'],
   weight: '700',
@@ -20,15 +22,12 @@ const baiJamjuree = BaiJamjuree({
 export const metadata = {
   title: 'NLW Spacetime',
   description:
-    'Uma cápsula do tempo construída com React, Next.JS, Tailwind, TypeScript e React Native',
+    'Uma cápsula do tempo construída com React, Next.js, TailwindCSS e Typescript.',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   const isAuthenticated = cookies().has('token');
+
   return (
     <html lang="en">
       <body
