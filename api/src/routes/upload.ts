@@ -39,5 +39,7 @@ export async function uploadRoutes(app: FastifyInstance) {
 
         const fullUrl = request.protocol.concat('://').concat(request.hostname);
         const fileUrl = new URL(`/uploas/${fileName}`, fullUrl).toString();
+
+        return { fileUrl };
     });
 }
